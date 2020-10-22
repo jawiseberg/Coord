@@ -72,9 +72,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30A4F74B2542206400508D38 /* FSCalendar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FSCalendar;
+			sourceTree = "<group>";
+		};
 		30B23D4A253673BF00CA919D = {
 			isa = PBXGroup;
 			children = (
+				30A4F74B2542206400508D38 /* FSCalendar */,
 				30B23D55253673BF00CA919D /* CoordApp */,
 				30B23D67253673C000CA919D /* CoordAppTests */,
 				30B23D72253673C000CA919D /* CoordAppUITests */,
