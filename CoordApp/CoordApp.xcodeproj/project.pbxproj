@@ -61,6 +61,15 @@
 		30EFC50025447D0B004E5B17 /* FSCalendarDelegationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EFC4D125447D0A004E5B17 /* FSCalendarDelegationProxy.m */; };
 		30EFC50125447D0B004E5B17 /* FSCalendarDelegationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EFC4D125447D0A004E5B17 /* FSCalendarDelegationProxy.m */; };
 		30EFC50225447D0B004E5B17 /* FSCalendarDelegationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EFC4D125447D0A004E5B17 /* FSCalendarDelegationProxy.m */; };
+		30EFC50F254480F6004E5B17 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30EFC50E254480F6004E5B17 /* LaunchScreen.xib */; };
+		30EFC510254480F6004E5B17 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30EFC50E254480F6004E5B17 /* LaunchScreen.xib */; };
+		30EFC511254480F6004E5B17 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30EFC50E254480F6004E5B17 /* LaunchScreen.xib */; };
+		30EFC5192544810D004E5B17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30EFC5182544810D004E5B17 /* Main.storyboard */; };
+		30EFC51A2544810D004E5B17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30EFC5182544810D004E5B17 /* Main.storyboard */; };
+		30EFC51B2544810D004E5B17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30EFC5182544810D004E5B17 /* Main.storyboard */; };
+		30EFC52325448131004E5B17 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EFC52225448131004E5B17 /* Assignment.swift */; };
+		30EFC52425448131004E5B17 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EFC52225448131004E5B17 /* Assignment.swift */; };
+		30EFC52525448131004E5B17 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EFC52225448131004E5B17 /* Assignment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +137,9 @@
 		30EFC4D025447D0A004E5B17 /* FSCalendarTransitionCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarTransitionCoordinator.h; sourceTree = "<group>"; };
 		30EFC4D125447D0A004E5B17 /* FSCalendarDelegationProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarDelegationProxy.m; sourceTree = "<group>"; };
 		30EFC4D225447D0A004E5B17 /* FSCalendarWeekdayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarWeekdayView.h; sourceTree = "<group>"; };
+		30EFC50E254480F6004E5B17 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		30EFC5182544810D004E5B17 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		30EFC52225448131004E5B17 /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,10 +233,13 @@
 		30B23D55253673BF00CA919D /* CoordApp */ = {
 			isa = PBXGroup;
 			children = (
+				30EFC52225448131004E5B17 /* Assignment.swift */,
 				30B23D56253673BF00CA919D /* CoordAppApp.swift */,
 				30B23D58253673BF00CA919D /* ContentView.swift */,
 				30B23D5A253673C000CA919D /* Assets.xcassets */,
 				30B23D5F253673C000CA919D /* Info.plist */,
+				30EFC50E254480F6004E5B17 /* LaunchScreen.xib */,
+				30EFC5182544810D004E5B17 /* Main.storyboard */,
 				30B23D5C253673C000CA919D /* Preview Content */,
 			);
 			path = CoordApp;
@@ -362,6 +377,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30EFC50F254480F6004E5B17 /* LaunchScreen.xib in Resources */,
+				30EFC5192544810D004E5B17 /* Main.storyboard in Resources */,
 				30B23D5E253673C000CA919D /* Preview Assets.xcassets in Resources */,
 				30B23D5B253673C000CA919D /* Assets.xcassets in Resources */,
 				30EFC4E225447D0B004E5B17 /* Info.plist in Resources */,
@@ -372,6 +389,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30EFC51A2544810D004E5B17 /* Main.storyboard in Resources */,
+				30EFC510254480F6004E5B17 /* LaunchScreen.xib in Resources */,
 				30EFC4E325447D0B004E5B17 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +399,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30EFC51B2544810D004E5B17 /* Main.storyboard in Resources */,
+				30EFC511254480F6004E5B17 /* LaunchScreen.xib in Resources */,
 				30EFC4E425447D0B004E5B17 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30EFC52325448131004E5B17 /* Assignment.swift in Sources */,
 				30EFC4DC25447D0B004E5B17 /* FSCalendarCell.m in Sources */,
 				30EFC4E825447D0B004E5B17 /* FSCalendarStickyHeader.m in Sources */,
 				30EFC4DF25447D0B004E5B17 /* FSCalendar.m in Sources */,
@@ -415,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30EFC52425448131004E5B17 /* Assignment.swift in Sources */,
 				30EFC4D425447D0B004E5B17 /* FSCalendarAppearance.m in Sources */,
 				30EFC4FE25447D0B004E5B17 /* FSCalendarHeaderView.m in Sources */,
 				30EFC4D725447D0B004E5B17 /* FSCalendarDelegationFactory.m in Sources */,
@@ -438,6 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30EFC52525448131004E5B17 /* Assignment.swift in Sources */,
 				30EFC4D525447D0B004E5B17 /* FSCalendarAppearance.m in Sources */,
 				30EFC4FF25447D0B004E5B17 /* FSCalendarHeaderView.m in Sources */,
 				30EFC4D825447D0B004E5B17 /* FSCalendarDelegationFactory.m in Sources */,
