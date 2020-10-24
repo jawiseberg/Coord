@@ -1,0 +1,6 @@
+framework module Pods_CoordTests {
+  umbrella header "Pods-CoordTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
