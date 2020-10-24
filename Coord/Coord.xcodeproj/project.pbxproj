@@ -15,6 +15,9 @@
 		30B855FD254489F80071D598 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B855FB254489F80071D598 /* LaunchScreen.storyboard */; };
 		30B85608254489F80071D598 /* CoordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B85607254489F80071D598 /* CoordTests.swift */; };
 		30B85613254489F90071D598 /* CoordUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B85612254489F90071D598 /* CoordUITests.swift */; };
+		30B856312544A0CB0071D598 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B856302544A0CB0071D598 /* Event.swift */; };
+		30B856322544A0CB0071D598 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B856302544A0CB0071D598 /* Event.swift */; };
+		30B856332544A0CB0071D598 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B856302544A0CB0071D598 /* Event.swift */; };
 		3C1113B5CBBC67C4B8725A2A /* Pods_Coord_CoordUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA2203364881766FA1BD9F1 /* Pods_Coord_CoordUITests.framework */; };
 		505332EBC56FADE5955DB3E1 /* Pods_CoordTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28E6DD31B6EF3D617959EC3 /* Pods_CoordTests.framework */; };
 		B8D1D9C2F9DA4C7623FBD57D /* Pods_Coord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91E1179917B450A7A68396C /* Pods_Coord.framework */; };
@@ -55,6 +58,7 @@
 		30B8560E254489F90071D598 /* CoordUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B85612254489F90071D598 /* CoordUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordUITests.swift; sourceTree = "<group>"; };
 		30B85614254489F90071D598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30B856302544A0CB0071D598 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		67660EE725792AD667ECC140 /* Pods-CoordTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoordTests.release.xcconfig"; path = "Target Support Files/Pods-CoordTests/Pods-CoordTests.release.xcconfig"; sourceTree = "<group>"; };
 		965C26F5F8AD4284B8E1099B /* Pods-Coord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coord.release.xcconfig"; path = "Target Support Files/Pods-Coord/Pods-Coord.release.xcconfig"; sourceTree = "<group>"; };
 		A91E1179917B450A7A68396C /* Pods_Coord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +130,7 @@
 				30B855F9254489F80071D598 /* Assets.xcassets */,
 				30B855FB254489F80071D598 /* LaunchScreen.storyboard */,
 				30B855FE254489F80071D598 /* Info.plist */,
+				30B856302544A0CB0071D598 /* Event.swift */,
 			);
 			path = Coord;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				30B855F5254489F80071D598 /* ViewController.swift in Sources */,
 				30B855F1254489F80071D598 /* AppDelegate.swift in Sources */,
 				30B855F3254489F80071D598 /* SceneDelegate.swift in Sources */,
+				30B856312544A0CB0071D598 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30B856322544A0CB0071D598 /* Event.swift in Sources */,
 				30B85608254489F80071D598 /* CoordTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30B856332544A0CB0071D598 /* Event.swift in Sources */,
 				30B85613254489F90071D598 /* CoordUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

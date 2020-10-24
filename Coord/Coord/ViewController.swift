@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         calendar.frame = CGRect(x: 0,
                                 y: 0,
                                 width: view.frame.size.width,
-                                height: view.frame.size.height)
+                                height: view.frame.size.width)
         view.addSubview(calendar)
     }
     
