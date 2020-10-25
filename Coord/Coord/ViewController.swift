@@ -7,6 +7,7 @@
 
 import FSCalendar
 import UIKit
+import SwiftUI
 
 class ViewController: UIViewController {
 
@@ -15,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         calendar.frame = CGRect(x: 0,
-                                y: 0,
+                                y: 50,
                                 width: view.frame.size.width,
                                 height: view.frame.size.width)
         view.addSubview(calendar)
@@ -26,6 +27,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    
 
 }
 
