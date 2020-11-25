@@ -17,7 +17,7 @@ struct assignment : Identifiable {
     var id = String()
     var assignmentName = String()
     var assignmentCourse = String()
-    var assignmentDueDate = String()
+    var assignmentDueDate = Date()
     
 }
 struct classes : Identifiable {

@@ -33,38 +33,65 @@ struct toDoList : View {
         let answer =  String(dateFormatter.string(from: date))
         return answer
     }
+    var editTask : some View {
+        NavigationView{
+            VStack{
+            HStack{
+            
+                    TextField("New item", text : self.$name)
+                    
+                    DatePicker(selection : self.$date, displayedComponents : .date) {Text("Date")}
+                
+            }
+                Picker(selection : $itemPriority, label : Text("Priority")){
+                    ForEach(0..<available_priorities.count){
+                        Text(String(self.available_priorities[$0]))}.padding()}
+            }
+            
+        }
+    }
+    func add_delete(){
+        
+    }
     var body : some View{
         NavigationView{
             
             VStack{
-                    VStack{
+                VStack{
+                HStack{
+                
                         TextField("New item", text : self.$name)
-                        Picker(selection : $itemPriority, label : Text("Priority")){
-                            ForEach(0..<available_priorities.count){
-                                Text(String(self.available_priorities[$0]))}.padding()}
-                        DatePicker(selection : self.$date, displayedComponents : .date) {Text("Choose Date")}
+                        
+                        DatePicker(selection : self.$date, displayedComponents : .date) {Text("Date")}
                     
+                }
+                    Picker(selection : $itemPriority, label : Text("Priority")){
+                        ForEach(0..<available_priorities.count){
+                            Text(String(self.available_priorities[$0]))}.padding()}
                 }
                 Button(action : newItem, label : {Text("Add Item")})
                 
                 List{
-                    ForEach(self.taskStore.taskList){ taskList in
+                    ForEach(self.taskStore.taskList){ taskList in NavigationLink(destination : editTask, label: {
+                                                                        
                         HStack{
                             Text(taskList.itemName)
                             Text(" | ")
                             Text(String(taskList.priority))
                             Text(" | ")
                             Text(taskList.stringDate)
-                        }
-                }.onMove(perform: self.move)
+                        
+                        }})}.onMove(perform: self.move)
                     .onDelete(perform: self.delete)
-                }.padding(.all).navigationBarTitle("List")
+                }.navigationBarTitle("List")
             .navigationBarItems(trailing: EditButton())
+                }
             
         }
         
 }
-    }
+    
+    
     func move(from source : IndexSet, to destination : Int) {
         self.taskStore.taskList.move(fromOffsets: source, toOffset: destination)
     }

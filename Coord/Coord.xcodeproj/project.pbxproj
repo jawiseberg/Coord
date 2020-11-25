@@ -25,6 +25,7 @@
 		BB9470D5256074F90041F427 /* AssignmentFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9470D4256074F90041F427 /* AssignmentFiles.swift */; };
 		BB9470F22560779C0041F427 /* toDoFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9470F12560779C0041F427 /* toDoFiles.swift */; };
 		BB9470FA2560790D0041F427 /* toDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9470F92560790D0041F427 /* toDoList.swift */; };
+		BB9470FF2560E1DD0041F427 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9470FE2560E1DD0041F427 /* Calendar.swift */; };
 		BEC04F2C2544925C00511ECF /* Assignments.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC04F2B2544925C00511ECF /* Assignments.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		BB9470D4256074F90041F427 /* AssignmentFiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentFiles.swift; sourceTree = "<group>"; };
 		BB9470F12560779C0041F427 /* toDoFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toDoFiles.swift; sourceTree = "<group>"; };
 		BB9470F92560790D0041F427 /* toDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toDoList.swift; sourceTree = "<group>"; };
+		BB9470FE2560E1DD0041F427 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		BEC04F2B2544925C00511ECF /* Assignments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignments.swift; sourceTree = "<group>"; };
 		D28E6DD31B6EF3D617959EC3 /* Pods_CoordTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoordTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA2203364881766FA1BD9F1 /* Pods_Coord_CoordUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coord_CoordUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 				BB5B7AC62545E34900A34E52 /* ItemData.xcdatamodeld */,
 				BB9470F12560779C0041F427 /* toDoFiles.swift */,
 				BB9470F92560790D0041F427 /* toDoList.swift */,
+				BB9470FE2560E1DD0041F427 /* Calendar.swift */,
 			);
 			path = Coord;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				30B855F1254489F80071D598 /* AppDelegate.swift in Sources */,
 				30B855F3254489F80071D598 /* SceneDelegate.swift in Sources */,
 				30B856312544A0CB0071D598 /* Event.swift in Sources */,
+				BB9470FF2560E1DD0041F427 /* Calendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

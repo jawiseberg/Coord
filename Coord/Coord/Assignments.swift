@@ -55,7 +55,7 @@ struct AssignmentView : View {
     @State var newAssignment : String = ""
     @State var name = ""
     @State var type = ""
-    @State var dueDate = ""
+    @State var dueDate = Date()
     @State var nameRetrieved = ""
     @State var courseRetrieved = ""
     @State var dueDateRetrieved = ""
@@ -80,12 +80,18 @@ struct AssignmentView : View {
                 }
             
             }.padding()
+        DatePicker(selection : self.$dueDate, displayedComponents : .date) {Text("Date")}
+        /*
+                Button(action : addNewAssignmentfunc, label : {NavigationLink(destination : body, label : {Text("Add Assignment")})
         
-        TextField("When is your assignment due?", text: $dueDate).textFieldStyle(RoundedBorderTextFieldStyle())
+    })
+        }
+ */
     }
     }
     }
     }
+    
     
 // Body View
     var body: some View {
@@ -111,6 +117,8 @@ struct AssignmentView : View {
     func addNewAssignmentfunc() {
         assignmentStore.assignments.append(assignment(id: "" , assignmentName: self.name, assignmentCourse: self.type, assignmentDueDate: self.dueDate))
         self.newAssignment = ""
+        self.dueDate = Date()
+        self.type = ""
     }
     
     /*
@@ -124,11 +132,7 @@ struct AssignmentView : View {
     func getCourse()-> String {
         return type
     }
-    
-    func getDueDate()-> String {
-        return dueDate
-    }
-    
+        
     
     func move(from source : IndexSet, to destination : Int) {
         assignmentStore.assignments.move(fromOffsets: source, toOffset: destination)
