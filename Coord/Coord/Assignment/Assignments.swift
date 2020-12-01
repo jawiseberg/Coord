@@ -79,7 +79,7 @@ struct AssignmentView : View {
                 
                 }
             
-            }.padding()
+        }.padding(.top)
         DatePicker(selection : self.$dueDate, displayedComponents : .date) {Text("Date")}
         /*
                 Button(action : addNewAssignmentfunc, label : {NavigationLink(destination : body, label : {Text("Add Assignment")})
@@ -88,7 +88,7 @@ struct AssignmentView : View {
         }
  */
     }
-    }
+    }.navigationBarTitle("Assigments",displayMode : .inline)
     }
     }
     
@@ -98,6 +98,7 @@ struct AssignmentView : View {
         NavigationView{
             List{
             HStack {
+            // Put Navigation Link in For Each loop
             NavigationLink(destination : addAssignment, label : {Text("Add Assignment")})}
 
                 VStack {
@@ -106,7 +107,7 @@ struct AssignmentView : View {
                             Text(task.assignmentName)
                         }.onMove(perform: self.move)
                             .onDelete(perform: self.delete)
-                            }.padding(.all).navigationBarTitle("Assignments")
+                    }.padding(.top).navigationBarTitle("Assignments")
                     .navigationBarItems(trailing: EditButton())
                 }
         }
