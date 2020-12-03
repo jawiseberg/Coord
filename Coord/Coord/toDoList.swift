@@ -33,23 +33,33 @@ struct toDoList : View {
         let answer =  String(dateFormatter.string(from: date))
         return answer
     }
-    var editTask : some View {
+
+    
+ var editTask : some View {
         NavigationView{
             VStack{
-            HStack{
-            
-                    TextField("New item", text : self.$name)
-                    
-                    DatePicker(selection : self.$date, displayedComponents : .date) {Text("Date")}
+                HStack{
                 
-            }
+                    TextField("Item Name", text : self.$name).textFieldStyle(RoundedBorderTextFieldStyle()).padding(.leading, 20).frame(width:150)
+                    
+                        DatePicker(selection : self.$date, displayedComponents : .date) {Text("")}.padding(.trailing, 20)
+                    
+                }.padding(.top, -180)
+                
+                VStack{
+                Text("Priority:")
+                
                 Picker(selection : $itemPriority, label : Text("Priority")){
                     ForEach(0..<available_priorities.count){
-                        Text(String(self.available_priorities[$0]))}.padding()}
-            }
+                        Text(String(self.available_priorities[$0]))}}.padding(.top, -100)
+                }.padding(.top, -120)
+            }.padding(.top, -120)
             
         }
     }
+ 
+
+    
     func add_delete(){
         
     }
@@ -58,22 +68,42 @@ struct toDoList : View {
             
             VStack{
                 VStack{
-                HStack{
-                
-                        TextField("New item", text : self.$name)
+                                    
+                    HStack{
+                  
+                            TextField("New list item", text : self.$name).textFieldStyle(RoundedBorderTextFieldStyle()).padding(.leading, 20)
+                            
+                            DatePicker(selection : self.$date, displayedComponents : .date) {Text("")}.padding(.trailing, 20)
                         
-                        DatePicker(selection : self.$date, displayedComponents : .date) {Text("Date")}
+                    }.padding(.top, -60)
                     
-                }
+                    VStack{
+                
+                    Text("Priority:")
+                    
                     Picker(selection : $itemPriority, label : Text("Priority")){
                         ForEach(0..<available_priorities.count){
-                            Text(String(self.available_priorities[$0]))}.padding()}
+                            Text(String(self.available_priorities[$0]))}}.frame(width:20).padding(.top, -100)
+                    }.frame(height: 120, alignment: .leading)
                 }
-                Button(action : newItem, label : {Text("Add Item")})
+                
+                Button(action : newItem, label : {Text("Add Item")}).foregroundColor(.white)
+                    .frame(width: 100, height: 32)
+                    .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue))
+                
+                if taskStore.taskList.count == 0{
+                    
+                }else{
+                    EditButton().frame(width: 300, alignment: .trailing).padding(.top, -20)
+                    
+                }
+                
                 
                 List{
-                    ForEach(self.taskStore.taskList){ taskList in NavigationLink(destination : editTask, label: {
-                                                                        
+                    ForEach(self.taskStore.taskList){ taskList in //NavigationLink(destination : editTask, label: {
+                            
+                        
+                        
                         HStack{
                             Text(taskList.itemName)
                             Text(" | ")
@@ -81,14 +111,18 @@ struct toDoList : View {
                             Text(" | ")
                             Text(taskList.stringDate)
                         
-                        }})}.onMove(perform: self.move)
+                        }
+                    //}
+                    //)
+                        
+                    }.onMove(perform: self.move)
                     .onDelete(perform: self.delete)
-                }.navigationBarTitle("List")
-            .navigationBarItems(trailing: EditButton())
+                }//.navigationBarItems(trailing: EditButton())
                 }
             
-        }
-        
+        }.navigationBarTitle("List", displayMode: .inline)
+        //.navigationBarItems(trailing: EditButton())
+.padding(.top,-20)
 }
     
     
@@ -119,9 +153,11 @@ struct toDoListHome : View {
         NavigationView{
             VStack{
                 HStack{
-                    TextField("To Do Lists", text : self.$name)
-                    Button(action : newList, label : {Text("Add List")})
-                }
+                    TextField("What do you need to do?", text : self.$name).textFieldStyle(RoundedBorderTextFieldStyle())
+                    Button(action : newList, label : {Text("Add")}).foregroundColor(.white)
+                        .frame(width: 50, height: 32)
+                        .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue))
+                }.padding()
                     VStack{
                         List{
                             ForEach(self.listStore.lists){ lists in NavigationLink(destination : toDoList(), label : {Text(lists.listName)})}.onMove(perform: self.move)

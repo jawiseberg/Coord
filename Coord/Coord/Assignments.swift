@@ -23,10 +23,17 @@ struct AssignmentHome : View {
     var body: some View {
         NavigationView {
             VStack{
-            HStack{
-            TextField("Classes", text : self.$name)
-            Button(action : newClass, label: {Text("Add List")})
-            }
+                HStack{
+                TextField("What class is this for?", text : self.$name).textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+            Button(action : newClass, label: {Text("Add")})                .foregroundColor(.white)
+                .frame(width: 50, height: 32)
+                .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue))
+                    
+                }.padding()
+                
+                //potentially add disabling button
+                
             VStack{
             List{
                 ForEach(self.classStore.classAss){ classAss in NavigationLink(destination : AssignmentView()){
@@ -46,6 +53,7 @@ struct AssignmentHome : View {
     func delete(at offsets : IndexSet) {
         self.classStore.classAss.remove(atOffsets: offsets)
     }
+    
 }
 
 
@@ -64,54 +72,69 @@ struct AssignmentView : View {
 
     // View to Add Assignments
     var addAssignment : some View{
-    NavigationView{
-            List{
-        VStack{
+   
+
+        NavigationView{
         
-        Text("Assignments")
-            .font(.title)
-    
-        TextField("Enter the name of your assignment", text: $name).textFieldStyle(RoundedBorderTextFieldStyle())
         
-        Picker(selection : $type, label : Text("Select Type")){
-                
-                ForEach(0 ..< assignmentTypes.count){Text(String(self.assignmentTypes[$0]))
-                
-                }
+            VStack{
+        
+            TextField("Enter the name of your assignment", text: $name).textFieldStyle(RoundedBorderTextFieldStyle()).padding(.top, -300)
             
-            }.padding()
-        DatePicker(selection : self.$dueDate, displayedComponents : .date) {Text("Date")}
-        /*
-                Button(action : addNewAssignmentfunc, label : {NavigationLink(destination : body, label : {Text("Add Assignment")})
+            Picker(selection : $type, label : Text("Select Type")){
+                    
+                    ForEach(0 ..< assignmentTypes.count){Text(String(self.assignmentTypes[$0]))
+                    
+                    }
+            }.padding(.top, -350)
+                
+                DatePicker(selection : self.$dueDate, displayedComponents : .date) {Text("Date")}.padding(.top, -350)
+                
+            }//.frame(width:500, height: 500, alignment: .leading)
+            .padding(.top, 150)
         
-    })
         }
- */
-    }
-    }
-    }
+        
     }
     
     
 // Body View
     var body: some View {
+        
         NavigationView{
+            
+            VStack{
+                
+            NavigationLink(destination : addAssignment, label : {Text("+")})
+                
+            }//
+                
+            //}
+        
+                /*
+                .foregroundColor(.white)
+            .frame(width: 25, height: 25)
+            .background(RoundedRectangle(cornerRadius: 100).fill(Color.blue))*/
+            
+        }.position(x: 300, y: 200).frame(width: 500, height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        
             List{
             HStack {
-            NavigationLink(destination : addAssignment, label : {Text("Add Assignment")})}
-
+                
                 VStack {
                     List {
                         ForEach(self.assignmentStore.assignments) { task in
                             Text(task.assignmentName)
                         }.onMove(perform: self.move)
                             .onDelete(perform: self.delete)
-                            }.padding(.all).navigationBarTitle("Assignments")
-                    .navigationBarItems(trailing: EditButton())
+                        
+                    }
+                
                 }
-        }
+            }
+        } .navigationBarTitle("Assignments", displayMode: .inline)
+        .navigationBarItems(trailing: EditButton()).padding(.top,-20)
 
-    }
     }
     
     func addNewAssignmentfunc() {
