@@ -13,6 +13,7 @@ import Combine
 // Class List
 struct AssignmentHome : View {
     @ObservedObject var classStore = ClassAssignments()
+    @State var id : Int = 0
     @State var name = String()
     
     func newClass(){
@@ -79,19 +80,30 @@ struct AssignmentView : View {
         
             VStack{
         
-            TextField("Enter the name of your assignment", text: $name).textFieldStyle(RoundedBorderTextFieldStyle()).padding(.top, -300)
+                TextField("Enter the name of your assignment", text: $name).textFieldStyle(RoundedBorderTextFieldStyle()).position(x: 150, y: -100)
             
             Picker(selection : $type, label : Text("Select Type")){
                     
                     ForEach(0 ..< assignmentTypes.count){Text(String(self.assignmentTypes[$0]))
                     
                     }
-            }.padding(.top, -350)
+            }.position(x: 150, y: -200)
                 
-                DatePicker(selection : self.$dueDate, displayedComponents : .date) {Text("Date")}.padding(.top, -350)
+                DatePicker(selection : self.$dueDate, displayedComponents : .date) {Text("Date")}.position(x: 150, y: -250)
                 
-            }//.frame(width:500, height: 500, alignment: .leading)
-            .padding(.top, 150)
+                //add this button the this screen to add the info into the arry on the previous screen
+                
+            
+                 
+                 Button(action : addNewAssignmentfunc, label : {Text("Add New Assignment")}).foregroundColor(.white)
+                     .frame(width: 190, height: 32)
+                    .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue)).padding(.top, -400)
+               
+                
+                
+                
+            }.frame(width: 300, height: 600, alignment: .center)
+            .padding(.top, 250)
         
         }
         
@@ -107,33 +119,30 @@ struct AssignmentView : View {
                 
             NavigationLink(destination : addAssignment, label : {Text("+")})
                 
-            }//
-                
-            //}
-        
-                /*
-                .foregroundColor(.white)
-            .frame(width: 25, height: 25)
-            .background(RoundedRectangle(cornerRadius: 100).fill(Color.blue))*/
+            }.position(x: 290, y: 0)
             
-        }.position(x: 300, y: 200).frame(width: 500, height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-        
-            List{
-            HStack {
-                
-                VStack {
-                    List {
-                        ForEach(self.assignmentStore.assignments) { task in
-                            Text(task.assignmentName)
-                        }.onMove(perform: self.move)
-                            .onDelete(perform: self.delete)
-                        
-                    }
-                
+            // the plus stops becoming clickable when the .postion y-value is negative
+            
+            VStack {
+                List {
+                    ForEach(self.assignmentStore.assignments) { task in
+                        Text(task.assignmentName)
+                    }.onMove(perform: self.move)
+                        .onDelete(perform: self.delete)
+                    
                 }
-            }
-        } .navigationBarTitle("Assignments", displayMode: .inline)
+            
+            }.frame(width: 1000, height: 1000).position(x: 0, y: 0)
+            
+            
+        }.frame(width: 300, height: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).navigationBarTitle("Assignments", displayMode: .inline)
         .navigationBarItems(trailing: EditButton()).padding(.top,-20)
+        
+            
+        
+                
+                
+             
 
     }
     
@@ -143,6 +152,15 @@ struct AssignmentView : View {
         self.dueDate = Date()
         self.type = ""
     }
+    
+    /*
+     func addNewAssignmentfunc(){
+         assignmentStore.assignments.append(assignment(id: (assignmentStore.assignments.count + 1),assignmentName: self.name, assignmentCourse: self.type, assignmentDueDate: self.dueDate))
+     self.newAssignment = ""
+     self.dueDate = Date()
+     self.type = ""
+     }
+     */
     
     /*
     func getName(iD: String)-> String {
