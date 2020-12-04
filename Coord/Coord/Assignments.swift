@@ -62,15 +62,15 @@ struct AssignmentHome : View {
 struct AssignmentView : View {
     @ObservedObject var assignmentStore = AssignmentStore()
     @State var newAssignment : String = ""
-    @State var name = ""
-    @State var type = ""
+    @State var id : Int = 0
+    @State var name : String = ""
+    @State var type: String = ""
     @State var dueDate = Date()
     @State var nameRetrieved = ""
     @State var courseRetrieved = ""
     @State var dueDateRetrieved = ""
     var assignmentTypes = ["Homework","Project","Notes","Study","Exam"]
     
-
     // View to Add Assignments
     var addAssignment : some View{
    
@@ -78,7 +78,7 @@ struct AssignmentView : View {
         NavigationView{
         
         
-            VStack{
+           /* VStack{
         
                 TextField("Enter the name of your assignment", text: $name).textFieldStyle(RoundedBorderTextFieldStyle()).position(x: 150, y: -100)
             
@@ -93,18 +93,15 @@ struct AssignmentView : View {
                 
                 //add this button the this screen to add the info into the arry on the previous screen
                 
-            
-                 
-                 Button(action : addNewAssignmentfunc, label : {Text("Add New Assignment")}).foregroundColor(.white)
-                     .frame(width: 190, height: 32)
-                    .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue)).padding(.top, -400)
-               
-                
+                Button(action : addNewAssignmentfunc, label : {Text("Add New Assignment")}).foregroundColor(.white)
+                    .frame(width: 190, height: 32)
+                   .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue)).padding(.top, -400)
                 
                 
             }.frame(width: 300, height: 600, alignment: .center)
             .padding(.top, 250)
-        
+ */
+            
         }
         
     }
@@ -115,24 +112,52 @@ struct AssignmentView : View {
         
         NavigationView{
             
-            VStack{
-                
-            NavigationLink(destination : addAssignment, label : {Text("+")})
-                
-            }.position(x: 290, y: 0)
-            
-            // the plus stops becoming clickable when the .postion y-value is negative
-            
             VStack {
+                
+                VStack{
+            
+                    TextField("Enter the name of your assignment", text: $name).textFieldStyle(RoundedBorderTextFieldStyle()).position(x: 150, y: -50)
+                
+                Picker(selection : $type, label : Text("Select Type")){
+                        
+                        ForEach(0 ..< assignmentTypes.count){Text(String(self.assignmentTypes[$0]))
+                        
+                        }
+                    
+                }.position(x: 150, y: -200)
+                    
+                    DatePicker(selection : self.$dueDate, displayedComponents : .date) {Text("Date")}.position(x: 150, y: -250)
+                    
+                    //add this button the this screen to add the info into the arry on the previous screen
+                    
+                    Button(action : addNewAssignmentfunc, label : {Text("Add New Assignment")}).foregroundColor(.white)
+                        .frame(width: 190, height: 32)
+                       .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue)).padding(.top, -420)
+                    
+                    
+                }.frame(width: 300, height: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).position(x: 400, y: 200)//.frame(width: 300, height: 500, alignment: .center)
+                //.padding(.top, 250)
+                
+                
                 List {
-                    ForEach(self.assignmentStore.assignments) { task in
-                        Text(task.assignmentName)
+                    ForEach(self.assignmentStore.assignments) { assignments in
+                        
+                        HStack{
+                            Text(assignments.assignmentName)
+                            Text(" | ")
+                            Text(assignments.stringDueDate)
+                            Text(" | ")
+                            Text(String(assignments.typeAssignment))
+                        }
+                           
+                            
                     }.onMove(perform: self.move)
                         .onDelete(perform: self.delete)
                     
-                }
+                    
+                }.frame(width: 300).position(x: 400, y: 50)
             
-            }.frame(width: 1000, height: 1000).position(x: 0, y: 0)
+            }.frame(width: 500, height: 300).position(x: 0, y: 300)
             
             
         }.frame(width: 300, height: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).navigationBarTitle("Assignments", displayMode: .inline)
@@ -146,34 +171,29 @@ struct AssignmentView : View {
 
     }
     
-    func addNewAssignmentfunc() {
-        assignmentStore.assignments.append(assignment(id: "" , assignmentName: self.name, assignmentCourse: self.type, assignmentDueDate: self.dueDate))
-        self.newAssignment = ""
-        self.dueDate = Date()
-        self.type = ""
+    func dateToString()-> String{
+        let date = self.dueDate
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy"
+        let answer =  String(dateFormatter.string(from: date))
+        return answer
     }
-    
+
     /*
-     func addNewAssignmentfunc(){
-         assignmentStore.assignments.append(assignment(id: (assignmentStore.assignments.count + 1),assignmentName: self.name, assignmentCourse: self.type, assignmentDueDate: self.dueDate))
-     self.newAssignment = ""
-     self.dueDate = Date()
-     self.type = ""
+     func newItem(){
+         taskStore.taskList.append(item(id: (taskStore.taskList.count + 1),itemName: self.name, priority: self.itemPriority, completeBy: self.date, stringDate : dateToString()))
+         self.name = ""
+         self.itemPriority = Int()
+         self.date = Date()
      }
      */
     
-    /*
-    func getName(iD: String)-> String {
-        //@ObservedObject var tempTaskStore = TaskStore()
-        //if let tempTask = taskStore[iD] as? [String: Any]{
-        //return tempTask.assignmentName
+    func addNewAssignmentfunc() {
+        assignmentStore.assignments.append(assignment(id: (assignmentStore.assignments.count + 1), assignmentName: self.name, typeAssignment: self.type, assignmentDueDate: self.dueDate, stringDueDate: dateToString()))
+        self.name = ""
+        self.dueDate = Date()
+        self.type = String()
     }
- */
-    
-    func getCourse()-> String {
-        return type
-    }
-        
     
     func move(from source : IndexSet, to destination : Int) {
         assignmentStore.assignments.move(fromOffsets: source, toOffset: destination)

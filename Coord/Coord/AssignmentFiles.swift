@@ -14,16 +14,18 @@ import Combine
 
 struct assignment : Identifiable {
     
-    var id = String()
+    var id = Int()
     var assignmentName = String()
-    var assignmentCourse = String()
+    var typeAssignment = String()
     var assignmentDueDate = Date()
+    var stringDueDate = String()
     
 }
+
 struct classes : Identifiable {
     var id = String()
     var className = String()
-    var type = String()
+    //var type = String()
     var assignmentList = AssignmentStore()
 }
 

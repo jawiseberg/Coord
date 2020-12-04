@@ -16,6 +16,7 @@ struct toDoList : View {
     @State var itemPriority = Int()
     @State var date = Date()
     var available_priorities = [1,2,3]
+    
     func newItem(){
         taskStore.taskList.append(item(id: (taskStore.taskList.count + 1),itemName: self.name, priority: self.itemPriority, completeBy: self.date, stringDate : dateToString()))
         self.name = ""
@@ -34,7 +35,8 @@ struct toDoList : View {
         return answer
     }
 
-    
+
+    /*
  var editTask : some View {
         NavigationView{
             VStack{
@@ -63,6 +65,10 @@ struct toDoList : View {
     func add_delete(){
         
     }
+ 
+ */
+    
+    
     var body : some View{
         NavigationView{
             
@@ -107,7 +113,7 @@ struct toDoList : View {
                         HStack{
                             Text(taskList.itemName)
                             Text(" | ")
-                            Text(String(taskList.priority))
+                            Text(String(taskList.priority + 1))
                             Text(" | ")
                             Text(taskList.stringDate)
                         
